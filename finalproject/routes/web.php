@@ -3,13 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\AdminController;
+
 
 Route::get('/welcome', function () {
     return view('welcome'); 
 });
 
-Route::get('/', function () {
-    return view('customer.home'); // This will load the 'home.blade.php' view.
+Route::get('/home', function () {
+    return view('customer.home'); 
 })->name('home');
 
 
@@ -105,7 +107,43 @@ Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
 Route::post('/checkout', [OrderController::class, 'processCheckout'])->name('checkout.process');
 
 // Show the order confirmation page after placing the order
-Route::get('/order/{order}', [OrderController::class, 'showOrder'])->name('customer.order');
+Route::get('/order/{order}', [OrderController::class, 'showOrder'])->name('customer.order-show');
 
 // Define the shop route
 Route::get('/shop', [ProductController::class, 'index'])->name('shop');
+
+
+use App\Http\Controllers\ShopController;
+
+Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+
+// Cart routes
+Route::post('/cart/{product}', [CartController::class, 'add'])->name('cart.add');
+
+
+
+
+
+// Ensure this route is defined
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+
+// User login route (default)
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login');
+
+
+Route::prefix('cart')->group(function () {
+    // Cart index (view cart)
+    Route::get('/', [CartController::class, 'index'])->name('customer.cart');
+    
+    // Add product to cart
+    Route::post('/add/{productId}', [CartController::class, 'add'])->name('cart.add');
+    
+    // Remove product from cart
+    Route::delete('/remove/{productId}', [CartController::class, 'remove'])->name('cart.remove');
+    
+    // Update product quantity in cart
+    Route::post('/update/{productId}', [CartController::class, 'update'])->name('cart.update');
+});
+
+

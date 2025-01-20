@@ -15,15 +15,15 @@ class ProductSeeder extends Seeder
     public function run()
     {
         Product::create([
-            'name' => 'Sample Product 1',
+            'name' => 'tshirt',
             'price' => 49.99,
             'description' => 'Description of Sample Product 1',
-            'image' => 'sample-product1.jpg',
+            'image' => 'images/cloth1.jpg',
             'is_featured' => true,
         ]);
 
         Product::create([
-            'name' => 'Sample Product 2',
+            'name' => 'bag',
             'price' => 19.99,
             'description' => 'Description of Sample Product 2',
             'image' => 'sample-product2.jpg',
@@ -31,69 +31,71 @@ class ProductSeeder extends Seeder
         ]);
 
         Product::create([
-            'name' => 'Sample Product 1',
+            'name' => 'sweater',
             'price' => 49.99,
-            'description' => 'Description of Sample Product 1',
+            'description' => 'Description of Sample Product 3',
             'image' => 'sample-product1.jpg',
             'is_featured' => true,
         ]);
 
         Product::create([
-            'name' => 'Sample Product 1',
+            'name' => 'pants',
             'price' => 49.99,
-            'description' => 'Description of Sample Product 1',
+            'description' => 'Description of Sample Product 4',
             'image' => 'sample-product1.jpg',
             'is_featured' => true,
         ]);
 
         Product::create([
-            'name' => 'Sample Product 1',
+            'name' => 'gloves',
             'price' => 49.99,
-            'description' => 'Description of Sample Product 1',
+            'description' => 'Description of Sample Product 5',
             'image' => 'sample-product1.jpg',
             'is_featured' => true,
         ]);
 
         Product::create([
-            'name' => 'Sample Product 1',
+            'name' => 'blazer',
             'price' => 49.99,
-            'description' => 'Description of Sample Product 1',
+            'description' => 'Description of Sample Product 6',
             'image' => 'sample-product1.jpg',
             'is_featured' => true,
         ]);
 
         Product::create([
-            'name' => 'Sample Product 1',
+            'name' => 'dress',
             'price' => 49.99,
-            'description' => 'Description of Sample Product 1',
+            'description' => 'Description of Sample Product 7',
             'image' => 'sample-product1.jpg',
             'is_featured' => true,
         ]);
 
         Product::create([
-            'name' => 'Sample Product 1',
+            'name' => 'shoes',
             'price' => 49.99,
-            'description' => 'Description of Sample Product 1',
+            'description' => 'Description of Sample Product 8',
             'image' => 'sample-product1.jpg',
             'is_featured' => true,
         ]);
 
         Product::create([
-            'name' => 'Sample Product 1',
+            'name' => 'socks',
             'price' => 49.99,
-            'description' => 'Description of Sample Product 1',
+            'description' => 'Description of Sample Product 9',
             'image' => 'sample-product1.jpg',
             'is_featured' => true,
         ]);
 
         Product::create([
-            'name' => 'Sample Product 1',
+            'name' => 'skirt',
             'price' => 49.99,
-            'description' => 'Description of Sample Product 1',
+            'description' => 'Description of Sample Product 10',
             'image' => 'sample-product1.jpg',
             'is_featured' => true,
         ]);
 
+        
+        
         
     }
 }

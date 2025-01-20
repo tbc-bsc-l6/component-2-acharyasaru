@@ -80,7 +80,7 @@ class OrderController extends Controller
         session()->forget('cart');
 
         // Redirect to the order confirmation page
-        return redirect()->route('customer.place-order', $order->id)->with('success', 'Your order has been placed successfully!');
+        return redirect()->route('customer.order-show', $order->id)->with('success', 'Your order has been placed successfully!');
     }
 
     /**
@@ -94,6 +94,6 @@ class OrderController extends Controller
         // Retrieve the order with its associated products
         $order = Order::with('products')->findOrFail($orderId);
 
-        return view('customer.place-order', compact('order'));
+        return view('customer.order-show', compact('order'));
     }
 }

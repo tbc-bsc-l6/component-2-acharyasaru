@@ -5,12 +5,19 @@
 @section('content')
     <div class="container mx-auto p-6">
         <!-- Hero Section -->
-        <div class="text-center py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg shadow-lg">
+        <div class="text-center py-20 bg-gradient-to-r from-pink-600 to-indigo-600 text-white rounded-lg shadow-lg">
             <h1 class="text-5xl font-bold mb-4">Welcome to E-Clothing</h1>
             <p class="text-lg mb-8">Discover a wide range of products at unbeatable prices. Shop your favorites today!</p>
-            <a href="{{ url('/shop') }}" class="bg-yellow-500 text-white px-8 py-4 rounded-lg text-xl hover:bg-yellow-400">
-                Start Shopping
-            </a>
+            
+            @auth
+                <a href="{{ url('/shop') }}" class="bg-yellow-500 text-white px-8 py-4 rounded-lg text-xl hover:bg-yellow-400">
+                    Start Shopping
+                </a>
+            @else
+                <a href="{{ route('login') }}" class="bg-red-500 text-white px-8 py-4 rounded-lg text-xl hover:bg-red-400">
+                    Login to Start Shopping
+                </a>
+            @endauth
         </div>
 
         <!-- Featured Products Section -->

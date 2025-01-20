@@ -25,8 +25,21 @@
                 <a href="{{ url('/shop') }}" class="hover:text-gray-400">Shop</a>
                 <a href="{{ url('/about') }}" class="hover:text-gray-400">About Us</a>
                 <a href="{{ url('/contact') }}" class="hover:text-gray-400">Contact</a>
-                <a href="{{ url('/cart') }}" class="hover:text-gray-400">Cart </a>
+                <a href="{{ url('/cart') }}" class="hover:text-gray-400">Cart</a>
                 
+                @auth
+                    <!-- If the user is logged in -->
+                    <!-- Logout -->
+                    <form action="{{ route('logout') }}" method="POST" class="inline">
+                        @csrf
+                        <button type="submit" class="hover:text-gray-400">Logout</button>
+                    </form>
+                @else
+                    <!-- If the user is not logged in -->
+                    <a href="{{ route('register') }}" class="hover:text-gray-400">Register</a>
+                    <a href="{{ route('login') }}" class="hover:text-gray-400">Login</a>
+                   
+                @endauth
             </div>
             <button class="md:hidden text-white" onclick="toggleMenu()">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -43,8 +56,14 @@
             <a href="{{ url('/cart') }}" class="block hover:text-gray-400">Cart</a>
             @auth
                 <a href="{{ url('/dashboard') }}" class="block hover:text-gray-400">Dashboard</a>
+                <!-- Logout -->
+                <form action="{{ route('logout') }}" method="POST" class="block">
+                    @csrf
+                    <button type="submit" class="hover:text-gray-400">Logout</button>
+                </form>
             @else
                 <a href="{{ route('login') }}" class="block hover:text-gray-400">Login</a>
+                
             @endauth
         </div>
     </nav>
