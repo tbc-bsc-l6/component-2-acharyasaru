@@ -92,3 +92,20 @@ use App\Http\Controllers\CheckoutController;
 
 Route::get('/checkout', [CheckoutController::class, 'showCheckoutPage'])->name('checkout');
 Route::post('/checkout', [CheckoutController::class, 'processCheckout'])->name('checkout.process');
+
+
+
+use App\Http\Controllers\OrderController;
+
+
+// Show the checkout page (from the cart page)
+Route::get('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+
+// Process the checkout form (place order)
+Route::post('/checkout', [OrderController::class, 'processCheckout'])->name('checkout.process');
+
+// Show the order confirmation page after placing the order
+Route::get('/order/{order}', [OrderController::class, 'showOrder'])->name('customer.order');
+
+// Define the shop route
+Route::get('/shop', [ProductController::class, 'index'])->name('shop');

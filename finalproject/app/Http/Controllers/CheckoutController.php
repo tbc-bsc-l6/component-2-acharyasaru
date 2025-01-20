@@ -9,7 +9,7 @@ class CheckoutController extends Controller
     // Show the checkout page
     public function showCheckoutPage()
     {
-        return view('checkout');
+        return view('customer.checkout');
     }
 
     // Process the checkout form submission
